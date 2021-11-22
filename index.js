@@ -56,7 +56,7 @@ function calculateMACD(data) {
     data[i].shortEMA = data[i].close * kShortEMA + data[i - 1].shortEMA * (1 - kShortEMA);
     data[i].longEMA = data[i].close * kLongEMA + data[i - 1].longEMA * (1 - kLongEMA);
     data[i].MACD = data[i].shortEMA - data[i].longEMA;
-    data[i].signal = data[i].MACD * kSignal + data[i - 1].MACD * (1 - kSignal);
+    data[i].signal = data[i].MACD * kSignal + data[i - 1].signal * (1 - kSignal);
     data[i].diffMACD = data[i].MACD - data[i].signal;
   }
   return data;
